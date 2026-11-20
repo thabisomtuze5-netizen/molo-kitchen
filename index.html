@@ -72,7 +72,6 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
     color: white;
     padding: 30px;
@@ -87,6 +86,8 @@ nav a:hover {
     font-size: 19px;
     margin-bottom: 25px;
 }
+
+/* BUTTONS */
 
 .button {
     display: inline-block;
@@ -104,7 +105,7 @@ nav a:hover {
     background: #b95016;
 }
 
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 section {
     padding: 65px 20px;
@@ -169,21 +170,15 @@ section h2 {
     margin-bottom: 20px;
 }
 
-/* SHOPPING CART */
+/* CART */
 
 .cart {
     background: white;
-    color: #29231f;
     padding: 25px;
-    margin: 40px auto 0;
+    margin: 40px auto;
     max-width: 700px;
     border-radius: 12px;
     box-shadow: 0 4px 12px #00000015;
-}
-
-.cart h2 {
-    color: #b95016;
-    font-size: 28px;
 }
 
 .cart-item {
@@ -222,8 +217,49 @@ section h2 {
     cursor: pointer;
 }
 
-.checkout-button:hover {
-    background: #106b34;
+/* CUSTOMER DETAILS */
+
+.checkout-form {
+    background: white;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #00000015;
+    text-align: left;
+}
+
+.checkout-form h2 {
+    text-align: center;
+    color: #b95016;
+    margin-bottom: 25px;
+}
+
+.checkout-form label {
+    display: block;
+    font-weight: bold;
+    margin: 16px 0 7px;
+}
+
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.checkout-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.checkout-form button {
+    width: 100%;
+    margin-top: 22px;
 }
 
 /* ABOUT */
@@ -269,7 +305,7 @@ footer {
     text-align: center;
 }
 
-/* MOBILE DESIGN */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -293,19 +329,18 @@ footer {
 
 }
 
-</style></head><body><!-- HEADER --><header><h1>🍴 MOLO KITCHEN</h1><p>Fresh Food. Great Taste. Good Times.</p></header><!-- NAVIGATION --><nav><a href="#home">Home</a>
-
+</style></head><body><!-- HEADER --><header>
+<h1>🍴 MOLO KITCHEN</h1>
+<p>Fresh Food. Great Taste. Good Times.</p>
+</header><!-- NAVIGATION --><nav>
+<a href="#home">Home</a>
 <a href="#menu">Menu</a>
-
 <a href="#about">About</a>
-
 <a href="#hours">Hours</a>
-
 <a href="#contact">Contact</a>
-
 </nav><!-- HOMEPAGE --><div class="hero" id="home"><h2>Welcome to Molo Kitchen</h2><p>Discover delicious food made with love.</p><a href="#menu" class="button">
 Explore Our Menu
-</a></div><!-- FOOD MENU --><section class="menu" id="menu"><div class="container"><h2>Our Popular Menu</h2><div class="food-container"><!-- FOOD 1 --><div class="food-card"><img
+</a></div><!-- FOOD MENU --><section class="menu" id="menu"><div class="container"><h2>Our Popular Menu</h2><div class="food-container"><!-- BURGER --><div class="food-card"><img
 src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
 alt="Classic burger"
 loading="lazy"
@@ -314,22 +349,22 @@ loading="lazy"
 
 <h3>Classic Burger</h3><p>Juicy burger with fresh ingredients.</p><div class="price">R65</div><button class="button"
 onclick="addToCart('Classic Burger', 65)">
-
 Add to Cart
+</button>
 
-</button></div><!-- FOOD 2 --><div class="food-card"><img
+</div><!-- PIZZA --><div class="food-card"><img
 src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800"
-alt="Pizza"
+alt="Special pizza"
 loading="lazy"
 
 «»
 
 <h3>Special Pizza</h3><p>Delicious pizza with melted cheese.</p><div class="price">R95</div><button class="button"
 onclick="addToCart('Special Pizza', 95)">
-
 Add to Cart
+</button>
 
-</button></div><!-- FOOD 3 --><div class="food-card"><img
+</div><!-- SALAD --><div class="food-card"><img
 src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
 alt="Fresh salad"
 loading="lazy"
@@ -338,36 +373,71 @@ loading="lazy"
 
 <h3>Fresh Salad</h3><p>Fresh and healthy ingredients.</p><div class="price">R55</div><button class="button"
 onclick="addToCart('Fresh Salad', 55)">
-
 Add to Cart
+</button>
 
-</button></div></div><!-- SHOPPING CART --><div class="cart" id="cart"><h2>🛒 Your Shopping Cart</h2><div id="cartItems"><p>Your cart is empty.</p></div><div class="cart-total">Total: R<span id="cartTotal">0</span>
+</div></div><!-- SHOPPING CART --><div class="cart" id="cart"><h2>🛒 Your Shopping Cart</h2><div id="cartItems">
+<p>Your cart is empty.</p>
+</div><div class="cart-total">
+Total: R<span id="cartTotal">0</span>
+</div></div><!-- CUSTOMER CHECKOUT FORM --><div class="checkout-form" id="checkout"><h2>Customer Details</h2><form id="orderForm"><label for="customerName">
+Full Name *
+</label><input
+type="text"
+id="customerName"
+placeholder="Enter your full name"
+required
 
-</div><button class="checkout-button"
-onclick="checkoutCart()">
+«»
 
-Checkout on WhatsApp
+<label for="customerPhone">
+Phone Number *
+</label><input
+type="tel"
+id="customerPhone"
+placeholder="e.g. 0831234567"
+required
 
-</button></div></div></section><!-- ABOUT --><section class="about" id="about"><div class="container"><h2>About Molo Kitchen</h2><p>
+«»
+
+<label for="orderType">
+Order Type *
+</label><select id="orderType" required onchange="toggleAddress()"><option value="">Choose delivery or collection</option><option value="Delivery">Delivery</option><option value="Collection">Collection</option></select><div id="addressArea" style="display:none;"><label for="customerAddress">
+Delivery Address *
+</label><textarea
+id="customerAddress"
+placeholder="Enter your street, suburb and area"
+></textarea></div><label for="orderInstructions">
+Special Instructions (Optional)
+</label><textarea
+id="orderInstructions"
+placeholder="Any extra instructions about your order?"
+></textarea><button type="submit" class="checkout-button">
+Place Order on WhatsApp
+</button></form></div></div></section><!-- ABOUT --><section class="about" id="about"><div class="container"><h2>About Molo Kitchen</h2><p>
 Welcome to Molo Kitchen!We believe great food brings people together.
 Our goal is to offer delicious meals and
 a wonderful dining experience.
 
 </p><p>
 Come hungry and leave happy!
-</p></div></section><!-- OPENING HOURS --><section class="hours" id="hours"><h2>Opening Hours</h2><p>Monday - Friday: 08:00 - 20:00</p><p>Saturday: 09:00 - 21:00</p><p>Sunday: 10:00 - 18:00</p></section><!-- CONTACT --><section class="contact" id="contact"><h2>Contact Us</h2><p>Want to order something delicious?</p><p>Contact us through WhatsApp.</p><button class="button"
+</p></div></section><!-- OPENING HOURS --><section class="hours" id="hours"><h2>Opening Hours</h2><p>Monday - Friday: 08:00 - 20:00</p>
+<p>Saturday: 09:00 - 21:00</p>
+<p>Sunday: 10:00 - 18:00</p></section><!-- CONTACT --><section class="contact" id="contact"><h2>Contact Us</h2><p>Want to order something delicious?</p><p>Contact us through WhatsApp.</p><button class="button"
 onclick="contactRestaurant()">
-
 Chat With Us
+</button>
 
-</button></section><!-- FOOTER --><footer><p>© 2026 Molo Kitchen</p><p>Fresh Food. Great Taste. Good Times.</p><p>Website designed by Thabiso Web Design.</p></footer><!-- JAVASCRIPT --><script>
+</section><!-- FOOTER --><footer><p>© 2026 Molo Kitchen</p>
+<p>Fresh Food. Great Taste. Good Times.</p>
+<p>Website designed by Thabiso Web Design.</p></footer><!-- JAVASCRIPT --><script>
 
 // WHATSAPP BUSINESS NUMBER
 
 const whatsappNumber = "27833649739";
 
 
-// SHOPPING CART DATA
+// SHOPPING CART
 
 let cart = [];
 
@@ -396,12 +466,10 @@ function addToCart(name, price) {
 
     displayCart();
 
-    alert(name + " added to your cart!");
-
 }
 
 
-// DISPLAY SHOPPING CART
+// DISPLAY CART
 
 function displayCart() {
 
@@ -431,10 +499,11 @@ function displayCart() {
 
                 <span>
                     ${item.name} x ${item.quantity}
-                    - R${itemTotal}
+                    = R${itemTotal}
                 </span>
 
-                <button onclick="removeFromCart(${index})">
+                <button type="button"
+                onclick="removeFromCart(${index})">
                     Remove
                 </button>
 
@@ -449,7 +518,7 @@ function displayCart() {
 }
 
 
-// REMOVE FOOD FROM CART
+// REMOVE ITEM
 
 function removeFromCart(index) {
 
@@ -460,19 +529,94 @@ function removeFromCart(index) {
 }
 
 
-// CHECKOUT THROUGH WHATSAPP
+// SHOW OR HIDE DELIVERY ADDRESS
 
-function checkoutCart() {
+function toggleAddress() {
+
+    let orderType = document.getElementById("orderType").value;
+
+    let addressArea = document.getElementById("addressArea");
+
+    let addressInput = document.getElementById("customerAddress");
+
+    if (orderType === "Delivery") {
+
+        addressArea.style.display = "block";
+
+        addressInput.required = true;
+
+    } else {
+
+        addressArea.style.display = "none";
+
+        addressInput.required = false;
+
+        addressInput.value = "";
+
+    }
+
+}
+
+
+// CUSTOMER CHECKOUT
+
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
 
     if (cart.length === 0) {
 
-        alert("Your shopping cart is empty!");
+        alert("Please add food to your shopping cart first.");
+
+        document.getElementById("cart").scrollIntoView();
 
         return;
 
     }
 
-    let message = "Hello Molo Kitchen! I would like to order:\n\n";
+    let name = document.getElementById("customerName").value.trim();
+
+    let phone = document.getElementById("customerPhone").value.trim();
+
+    let orderType = document.getElementById("orderType").value;
+
+    let address = document.getElementById("customerAddress").value.trim();
+
+    let instructions = document.getElementById("orderInstructions").value.trim();
+
+    if (!name || !phone || !orderType) {
+
+        alert("Please complete all required customer details.");
+
+        return;
+
+    }
+
+    if (orderType === "Delivery" && !address) {
+
+        alert("Please enter your delivery address.");
+
+        return;
+
+    }
+
+    let message = "HELLO MOLO KITCHEN! I WOULD LIKE TO PLACE AN ORDER.\n\n";
+
+    message += "CUSTOMER DETAILS\n";
+
+    message += "Name: " + name + "\n";
+
+    message += "Phone: " + phone + "\n";
+
+    message += "Order Type: " + orderType + "\n";
+
+    if (orderType === "Delivery") {
+
+        message += "Address: " + address + "\n";
+
+    }
+
+    message += "\nORDER DETAILS\n";
 
     let total = 0;
 
@@ -487,11 +631,17 @@ function checkoutCart() {
 
     });
 
-    message += "\nTOTAL: R" + total;
+    message += "\nTOTAL: R" + total + "\n";
+
+    if (instructions) {
+
+        message += "\nSpecial Instructions: " + instructions;
+
+    }
 
     sendWhatsApp(message);
 
-}
+});
 
 
 // CONTACT RESTAURANT
@@ -511,7 +661,7 @@ function sendWhatsApp(message) {
 
     if (!/^\d{11,15}$/.test(whatsappNumber)) {
 
-        alert("Please check the WhatsApp number in the JavaScript code.");
+        alert("Please check the WhatsApp number in the code.");
 
         return;
 
