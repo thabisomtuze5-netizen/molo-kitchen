@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Molo Kitchen | Restaurant</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Molo Kitchen | Fresh Food, Great Taste</title><style>
 
 * {
     margin: 0;
@@ -23,49 +23,64 @@ body {
 header {
     background: #29231f;
     color: white;
-    padding: 22px;
-    text-align: center;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header h1 {
-    font-size: 30px;
+.logo {
     color: #ffb347;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-header p {
-    margin-top: 5px;
+.logo span {
+    color: white;
 }
 
 /* NAVIGATION */
 
 nav {
     background: white;
-    padding: 18px;
-    text-align: center;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     position: sticky;
     top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 8px #00000015;
+    z-index: 100;
+    box-shadow: 0 2px 10px #00000012;
 }
 
 nav a {
     text-decoration: none;
     color: #29231f;
     font-weight: bold;
-    margin: 0 12px;
 }
 
 nav a:hover {
     color: #e87524;
 }
 
+.menu-toggle {
+    display: none;
+    background: #e87524;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 /* HERO */
 
 .hero {
-    min-height: 430px;
+    min-height: 520px;
     background:
-    linear-gradient(#0008, #0008),
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200")
+    linear-gradient(#0009, #0008),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400")
     center/cover;
 
     display: flex;
@@ -77,50 +92,98 @@ nav a:hover {
     padding: 30px;
 }
 
-.hero h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
+.hero h1 {
+    font-size: 52px;
+    max-width: 750px;
+    margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 19px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
-
-/* BUTTONS */
 
 .button {
     display: inline-block;
     background: #e87524;
     color: white;
-    padding: 14px 25px;
+    padding: 15px 27px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .button:hover {
     background: #b95016;
+    transform: translateY(-3px);
 }
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 
 section {
-    padding: 65px 20px;
+    padding: 70px 20px;
     text-align: center;
-}
-
-section h2 {
-    font-size: 32px;
-    margin-bottom: 25px;
-    color: #b95016;
 }
 
 .container {
     max-width: 1100px;
     margin: auto;
+}
+
+.section-title {
+    color: #b95016;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* SPECIAL OFFER */
+
+.offer {
+    background: #29231f;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.offer strong {
+    color: #ffb347;
+}
+
+/* FOOD CATEGORIES */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.category-button {
+    border: 1px solid #e87524;
+    background: white;
+    color: #b95016;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category-button.active,
+.category-button:hover {
+    background: #e87524;
+    color: white;
 }
 
 /* MENU */
@@ -139,46 +202,63 @@ section h2 {
 .food-card {
     width: 300px;
     background: white;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 4px 12px #00000015;
+    box-shadow: 0 4px 15px #00000012;
+    transition: 0.3s;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px #00000020;
 }
 
 .food-card img {
     width: 100%;
-    height: 190px;
+    height: 200px;
     object-fit: cover;
 }
 
-.food-card h3 {
-    margin: 15px;
+.food-content {
+    padding: 18px;
 }
 
-.food-card p {
+.food-content h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.food-content p {
     color: #666;
-    margin: 10px;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
 .price {
     color: #e87524;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 15px;
+    margin-bottom: 18px;
 }
 
 .food-card button {
-    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* CART */
+/* SHOPPING CART */
 
 .cart {
     background: white;
-    padding: 25px;
-    margin: 40px auto;
-    max-width: 700px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px #00000015;
+    padding: 28px;
+    margin: 45px auto;
+    max-width: 750px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.cart h2 {
+    color: #b95016;
+    margin-bottom: 20px;
 }
 
 .cart-item {
@@ -187,7 +267,7 @@ section h2 {
     align-items: center;
     gap: 10px;
     padding: 15px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
     text-align: left;
 }
 
@@ -201,31 +281,30 @@ section h2 {
 }
 
 .cart-total {
-    font-size: 23px;
+    font-size: 24px;
+    font-weight: bold;
     margin: 25px 0;
-    font-weight: bold;
 }
 
-.checkout-button {
-    background: #168b45;
+.cart-count {
+    display: inline-block;
+    background: #e87524;
     color: white;
-    border: none;
-    padding: 15px 22px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 4px 9px;
+    border-radius: 50%;
+    font-size: 13px;
+    margin-left: 5px;
 }
 
-/* CUSTOMER DETAILS */
+/* CHECKOUT */
 
 .checkout-form {
     background: white;
-    max-width: 700px;
+    max-width: 750px;
     margin: 30px auto;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px #00000015;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px #00000012;
     text-align: left;
 }
 
@@ -238,14 +317,14 @@ section h2 {
 .checkout-form label {
     display: block;
     font-weight: bold;
-    margin: 16px 0 7px;
+    margin: 17px 0 8px;
 }
 
 .checkout-form input,
 .checkout-form select,
 .checkout-form textarea {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     border: 1px solid #ccc;
     border-radius: 7px;
     font-size: 16px;
@@ -260,6 +339,11 @@ section h2 {
 .checkout-form button {
     width: 100%;
     margin-top: 22px;
+    background: #168b45;
+}
+
+.checkout-form button:hover {
+    background: #106b34;
 }
 
 /* ABOUT */
@@ -269,10 +353,69 @@ section h2 {
 }
 
 .about p {
-    max-width: 700px;
-    margin: 12px auto;
+    max-width: 750px;
+    margin: 15px auto;
     font-size: 17px;
     line-height: 1.8;
+}
+
+/* WHY CHOOSE US */
+
+.features {
+    background: #fff2df;
+}
+
+.feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 250px;
+}
+
+.feature-card h3 {
+    color: #b95016;
+    margin: 12px 0;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.feature-icon {
+    font-size: 35px;
+}
+
+/* CUSTOMER FEEDBACK */
+
+.reviews {
+    background: white;
+}
+
+.review-card {
+    background: #fffaf3;
+    padding: 25px;
+    max-width: 650px;
+    margin: auto;
+    border-radius: 12px;
+    line-height: 1.7;
+}
+
+.review-card p {
+    color: #666;
+}
+
+.review-card strong {
+    display: block;
+    margin-top: 12px;
+    color: #b95016;
 }
 
 /* HOURS */
@@ -282,7 +425,7 @@ section h2 {
 }
 
 .hours p {
-    margin: 12px;
+    margin: 13px;
     font-size: 18px;
 }
 
@@ -293,7 +436,8 @@ section h2 {
 }
 
 .contact p {
-    margin: 12px;
+    margin: 15px;
+    line-height: 1.6;
 }
 
 /* FOOTER */
@@ -301,26 +445,61 @@ section h2 {
 footer {
     background: #29231f;
     color: white;
-    padding: 25px;
+    padding: 35px 20px;
     text-align: center;
+    line-height: 2;
 }
 
-/* MOBILE */
+footer strong {
+    color: #ffb347;
+}
 
-@media (max-width: 600px) {
+/* MOBILE DESIGN */
 
-    nav a {
-        display: inline-block;
-        margin: 7px;
-        font-size: 14px;
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 20px;
     }
 
-    .hero h2 {
-        font-size: 32px;
+    .logo {
+        font-size: 21px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 430px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
     }
 
     .food-card {
         width: 100%;
+        max-width: 380px;
     }
 
     .cart-item {
@@ -329,58 +508,102 @@ footer {
 
 }
 
-</style></head><body><!-- HEADER --><header>
-<h1>🍴 MOLO KITCHEN</h1>
-<p>Fresh Food. Great Taste. Good Times.</p>
-</header><!-- NAVIGATION --><nav>
-<a href="#home">Home</a>
-<a href="#menu">Menu</a>
-<a href="#about">About</a>
-<a href="#hours">Hours</a>
-<a href="#contact">Contact</a>
-</nav><!-- HOMEPAGE --><div class="hero" id="home"><h2>Welcome to Molo Kitchen</h2><p>Discover delicious food made with love.</p><a href="#menu" class="button">
+</style></head><body><!-- HEADER --><header><div class="logo">
+🍴 MOLO <span>KITCHEN</span>
+</div><button class="menu-toggle" onclick="toggleMenu()">
+☰
+</button></header><!-- NAVIGATION --><nav id="mainNav"><a href="#home" onclick="closeMenu()">Home</a>
+
+<a href="#menu" onclick="closeMenu()">Menu</a>
+
+<a href="#about" onclick="closeMenu()">About</a>
+
+<a href="#reviews" onclick="closeMenu()">Reviews</a>
+
+<a href="#hours" onclick="closeMenu()">Hours</a>
+
+<a href="#contact" onclick="closeMenu()">Contact</a>
+
+<a href="#cart" onclick="closeMenu()">
+Cart <span class="cart-count" id="navCartCount">0</span>
+</a></nav><!-- HERO --><div class="hero" id="home"><h1>Good Food. Great Moments.</h1><p>
+Welcome to Molo Kitchen.<br>
+Discover delicious meals made with love.
+</p><a href="#menu" class="button">
 Explore Our Menu
-</a></div><!-- FOOD MENU --><section class="menu" id="menu"><div class="container"><h2>Our Popular Menu</h2><div class="food-container"><!-- BURGER --><div class="food-card"><img
+</a></div><!-- OFFER --><div class="offer">Fresh Food. Great Taste. <strong>Good Times.</strong>
+
+</div><!-- MENU --><section class="menu" id="menu"><div class="container"><h2 class="section-title">
+Explore Our Menu
+</h2><p class="section-description">
+Choose your favourite meal and add it to your cart.
+</p><!-- CATEGORY FILTERS --><div class="categories"><button class="category-button active"
+onclick="filterMenu('all', this)">
+All
+</button>
+
+<button class="category-button"
+onclick="filterMenu('burger', this)">
+Burgers
+</button>
+
+<button class="category-button"
+onclick="filterMenu('pizza', this)">
+Pizza
+</button>
+
+<button class="category-button"
+onclick="filterMenu('salad', this)">
+Salads
+</button>
+
+</div><!-- FOOD CARDS --><div class="food-container"><!-- BURGER --><div class="food-card" data-category="burger"><img
 src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
-alt="Classic burger"
+alt="Classic Burger"
 loading="lazy"
 
 «»
 
-<h3>Classic Burger</h3><p>Juicy burger with fresh ingredients.</p><div class="price">R65</div><button class="button"
+<div class="food-content"><h3>Classic Burger</h3><p>
+Juicy burger with fresh ingredients.
+</p><div class="price">R65</div><button class="button"
 onclick="addToCart('Classic Burger', 65)">
 Add to Cart
 </button>
 
-</div><!-- PIZZA --><div class="food-card"><img
+</div></div><!-- PIZZA --><div class="food-card" data-category="pizza"><img
 src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800"
-alt="Special pizza"
+alt="Special Pizza"
 loading="lazy"
 
 «»
 
-<h3>Special Pizza</h3><p>Delicious pizza with melted cheese.</p><div class="price">R95</div><button class="button"
+<div class="food-content"><h3>Special Pizza</h3><p>
+Delicious pizza with melted cheese.
+</p><div class="price">R95</div><button class="button"
 onclick="addToCart('Special Pizza', 95)">
 Add to Cart
 </button>
 
-</div><!-- SALAD --><div class="food-card"><img
+</div></div><!-- SALAD --><div class="food-card" data-category="salad"><img
 src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
-alt="Fresh salad"
+alt="Fresh Salad"
 loading="lazy"
 
 «»
 
-<h3>Fresh Salad</h3><p>Fresh and healthy ingredients.</p><div class="price">R55</div><button class="button"
+<div class="food-content"><h3>Fresh Salad</h3><p>
+Fresh and healthy ingredients.
+</p><div class="price">R55</div><button class="button"
 onclick="addToCart('Fresh Salad', 55)">
 Add to Cart
 </button>
 
-</div></div><!-- SHOPPING CART --><div class="cart" id="cart"><h2>🛒 Your Shopping Cart</h2><div id="cartItems">
+</div></div></div><!-- CART --><div class="cart" id="cart"><h2>🛒 Your Shopping Cart</h2><div id="cartItems">
 <p>Your cart is empty.</p>
 </div><div class="cart-total">
 Total: R<span id="cartTotal">0</span>
-</div></div><!-- CUSTOMER CHECKOUT FORM --><div class="checkout-form" id="checkout"><h2>Customer Details</h2><form id="orderForm"><label for="customerName">
+</div></div><!-- CHECKOUT FORM --><div class="checkout-form" id="checkout"><h2>Complete Your Order</h2><form id="orderForm"><label for="customerName">
 Full Name *
 </label><input
 type="text"
@@ -401,36 +624,60 @@ required
 «»
 
 <label for="orderType">
-Order Type *
-</label><select id="orderType" required onchange="toggleAddress()"><option value="">Choose delivery or collection</option><option value="Delivery">Delivery</option><option value="Collection">Collection</option></select><div id="addressArea" style="display:none;"><label for="customerAddress">
+Delivery or Collection *
+</label><select id="orderType" required onchange="toggleAddress()"><option value="">Choose an option</option><option value="Delivery">Delivery</option><option value="Collection">Collection</option></select><div id="addressArea" style="display:none;"><label for="customerAddress">
 Delivery Address *
 </label><textarea
 id="customerAddress"
-placeholder="Enter your street, suburb and area"
+placeholder="Enter your full delivery address"
 ></textarea></div><label for="orderInstructions">
-Special Instructions (Optional)
+Special Instructions
 </label><textarea
 id="orderInstructions"
-placeholder="Any extra instructions about your order?"
-></textarea><button type="submit" class="checkout-button">
+placeholder="Any special requests?"
+></textarea><button type="submit" class="button">
 Place Order on WhatsApp
-</button></form></div></div></section><!-- ABOUT --><section class="about" id="about"><div class="container"><h2>About Molo Kitchen</h2><p>
-Welcome to Molo Kitchen!We believe great food brings people together.
-Our goal is to offer delicious meals and
-a wonderful dining experience.
-
+</button></form></div></div></section><!-- ABOUT --><section class="about" id="about"><div class="container"><h2 class="section-title">
+About Molo Kitchen
+</h2><p>
+Welcome to Molo Kitchen!
+</p><p>
+We believe great food brings people together.
+Our goal is to offer delicious meals and a
+wonderful dining experience.
 </p><p>
 Come hungry and leave happy!
-</p></div></section><!-- OPENING HOURS --><section class="hours" id="hours"><h2>Opening Hours</h2><p>Monday - Friday: 08:00 - 20:00</p>
-<p>Saturday: 09:00 - 21:00</p>
-<p>Sunday: 10:00 - 18:00</p></section><!-- CONTACT --><section class="contact" id="contact"><h2>Contact Us</h2><p>Want to order something delicious?</p><p>Contact us through WhatsApp.</p><button class="button"
+</p></div></section><!-- WHY CHOOSE US --><section class="features"><div class="container"><h2 class="section-title">
+Why Choose Molo Kitchen?
+</h2><div class="feature-container"><div class="feature-card"><div class="feature-icon">🍔</div><h3>Delicious Food</h3><p>
+Enjoy tasty meals prepared with care.
+</p></div><div class="feature-card"><div class="feature-icon">❤️</div><h3>Made With Love</h3><p>
+We believe every meal should be special.
+</p></div><div class="feature-card"><div class="feature-icon">📱</div><h3>Easy Ordering</h3><p>
+Order your favourite food through WhatsApp.
+</p></div></div></div></section><!-- REVIEWS --><section class="reviews" id="reviews"><div class="container"><h2 class="section-title">
+Customer Feedback
+</h2><div class="review-card"><div style="font-size:28px; color:#e87524;">
+★★★★★
+</div><p>
+Customer reviews will appear here.
+We look forward to hearing about your experience!
+</p><strong>Share your experience with Molo Kitchen.</strong>
+
+</div></div></section><!-- HOURS --><section class="hours" id="hours"><h2 class="section-title">
+Opening Hours
+</h2><p>Monday - Friday: 08:00 - 20:00</p><p>Saturday: 09:00 - 21:00</p><p>Sunday: 10:00 - 18:00</p></section><!-- CONTACT --><section class="contact" id="contact"><h2 class="section-title">
+Contact Us
+</h2><p>
+Want to order something delicious?
+</p><p>
+Contact Molo Kitchen through WhatsApp.
+</p><button class="button"
 onclick="contactRestaurant()">
 Chat With Us
 </button>
 
-</section><!-- FOOTER --><footer><p>© 2026 Molo Kitchen</p>
-<p>Fresh Food. Great Taste. Good Times.</p>
-<p>Website designed by Thabiso Web Design.</p></footer><!-- JAVASCRIPT --><script>
+</section><!-- FOOTER --><footer><p><strong>🍴 MOLO KITCHEN</strong></p><p>Fresh Food. Great Taste. Good Times.</p><p>© 2026 Molo Kitchen. All rights reserved.</p><p>Website designed by Thabiso Web Design.</p></footer><!-- JAVASCRIPT --><script>
 
 // WHATSAPP BUSINESS NUMBER
 
@@ -440,6 +687,58 @@ const whatsappNumber = "27833649739";
 // SHOPPING CART
 
 let cart = [];
+
+
+// MOBILE NAVIGATION
+
+function toggleMenu() {
+
+    document.getElementById("mainNav")
+    .classList.toggle("show");
+
+}
+
+function closeMenu() {
+
+    document.getElementById("mainNav")
+    .classList.remove("show");
+
+}
+
+
+// FILTER FOOD CATEGORIES
+
+function filterMenu(category, button) {
+
+    let cards = document.querySelectorAll(".food-card");
+
+    cards.forEach(function(card) {
+
+        if (
+            category === "all" ||
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.querySelectorAll(".category-button")
+    .forEach(function(item) {
+
+        item.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+}
 
 
 // ADD FOOD TO CART
@@ -477,9 +776,13 @@ function displayCart() {
 
     let cartTotal = document.getElementById("cartTotal");
 
+    let navCartCount = document.getElementById("navCartCount");
+
     cartItems.innerHTML = "";
 
     let total = 0;
+
+    let itemCount = 0;
 
     if (cart.length === 0) {
 
@@ -492,6 +795,8 @@ function displayCart() {
         let itemTotal = item.price * item.quantity;
 
         total += itemTotal;
+
+        itemCount += item.quantity;
 
         cartItems.innerHTML += `
 
@@ -515,6 +820,8 @@ function displayCart() {
 
     cartTotal.textContent = total;
 
+    navCartCount.textContent = itemCount;
+
 }
 
 
@@ -529,7 +836,7 @@ function removeFromCart(index) {
 }
 
 
-// SHOW OR HIDE DELIVERY ADDRESS
+// DELIVERY ADDRESS
 
 function toggleAddress() {
 
@@ -560,33 +867,40 @@ function toggleAddress() {
 
 // CUSTOMER CHECKOUT
 
-document.getElementById("orderForm").addEventListener("submit", function(event) {
+document.getElementById("orderForm")
+.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
     if (cart.length === 0) {
 
-        alert("Please add food to your shopping cart first.");
+        alert("Please add food to your cart first.");
 
-        document.getElementById("cart").scrollIntoView();
+        document.getElementById("cart")
+        .scrollIntoView();
 
         return;
 
     }
 
-    let name = document.getElementById("customerName").value.trim();
+    let name = document.getElementById("customerName")
+    .value.trim();
 
-    let phone = document.getElementById("customerPhone").value.trim();
+    let phone = document.getElementById("customerPhone")
+    .value.trim();
 
-    let orderType = document.getElementById("orderType").value;
+    let orderType = document.getElementById("orderType")
+    .value;
 
-    let address = document.getElementById("customerAddress").value.trim();
+    let address = document.getElementById("customerAddress")
+    .value.trim();
 
-    let instructions = document.getElementById("orderInstructions").value.trim();
+    let instructions = document.getElementById("orderInstructions")
+    .value.trim();
 
     if (!name || !phone || !orderType) {
 
-        alert("Please complete all required customer details.");
+        alert("Please complete all required details.");
 
         return;
 
@@ -600,7 +914,8 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     }
 
-    let message = "HELLO MOLO KITCHEN! I WOULD LIKE TO PLACE AN ORDER.\n\n";
+    let message =
+    "HELLO MOLO KITCHEN! I WOULD LIKE TO PLACE AN ORDER.\n\n";
 
     message += "CUSTOMER DETAILS\n";
 
@@ -627,7 +942,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
         total += itemTotal;
 
         message += item.name + " x " + item.quantity +
-                   " = R" + itemTotal + "\n";
+        " = R" + itemTotal + "\n";
 
     });
 
@@ -668,8 +983,8 @@ function sendWhatsApp(message) {
     }
 
     let link =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(message);
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message);
 
     window.open(link, "_blank");
 
